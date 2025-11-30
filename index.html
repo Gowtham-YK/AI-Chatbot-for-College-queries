@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>DSU-CHATBOT | College Assistant</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- Logo style -->
+    <style>
+        .robot-logo {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            filter: drop-shadow(0 0 6px rgba(255,255,255,0.3));
+        }
+    </style>
+</head>
+
+<body class="app-body">
+
+<div class="bg-overlay"></div>
+
+<!-- TOP BAR -->
+<header class="top-bar">
+    <div class="top-bar-left">
+
+        <!-- ⭐ LOGO ADDED HERE -->
+        <img src="https://cdn.discordapp.com/avatars/854634581487648799/d9052684d394aa955438659770ed1694.webp?size=256"
+             alt="Chatbot Logo"
+             class="robot-logo">
+
+        <div class="logo-text">
+            <span class="logo-title">DSU-CHATBOT</span>
+            <span class="logo-subtitle">College Query Assistant</span>
+        </div>
+    </div>
+
+    <div class="top-bar-right">
+        <span class="badge">NLP Project</span>
+
+        <div class="settings-wrapper">
+            <button type="button" class="settings-btn" id="settings-toggle">
+                <span class="icon">⚙️</span>
+                <span class="label">Settings</span>
+            </button>
+
+            <!-- SETTINGS PANEL -->
+            <div class="settings-panel" id="settings-panel">
+                
+                <!-- Text size -->
+                <div class="settings-section">
+                    <div class="settings-title">Text Size</div>
+                    <div class="settings-row">
+                        <span>Chat font size</span>
+                        <input
+                            type="range"
+                            id="font-slider"
+                            min="80"
+                            max="130"
+                            value="100"
+                        />
+                    </div>
+                </div>
+
+                <!-- Accessibility -->
+                <div class="settings-section">
+                    <div class="settings-title">Accessibility</div>
+                    <div class="settings-row">
+                        <span>Large text mode</span>
+                        <button type="button" id="large-text-toggle" class="toggle-pill">
+                            Off
+                        </button>
+                    </div>
+                    <div class="settings-row">
+                        <span>High contrast mode</span>
+                        <button type="button" id="contrast-toggle" class="toggle-pill">
+                            Off
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Language selector -->
+                <div class="settings-section">
+                    <div class="settings-title">Language</div>
+                    <div class="settings-row">
+                        <span>Response language</span>
+                        <select id="language-select">
+                            <option value="">English (default)</option>
+                            <option value="kn">Kannada</option>
+                            <option value="hi">Hindi</option>
+                            <option value="ta">Tamil</option>
+                            <option value="te">Telugu</option>
+                            <option value="ml">Malayalam</option>
+                            <option value="mr">Marathi</option>
+                            <option value="bn">Bengali</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Download chat -->
+                <button type="button" class="settings-action" onclick="downloadChat()">
+                    Download chat history
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- CHAT UI -->
+<main class="fullscreen-chat">
+
+    <!-- messages -->
+    <div id="chat-window" class="chat-window"></div>
+
+    <!-- typing indicator -->
+    <div id="typing-indicator" class="typing-indicator hidden">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <span class="typing-text">DSU-CHATBOT is typing...</span>
+    </div>
+
+    <!-- clarification options -->
+    <div id="options-container" class="options-container"></div>
+
+    <!-- input row -->
+    <form id="chat-form" class="chat-input-row">
+
+        <!-- mic button with SVG -->
+        <button type="button" class="mic-btn" id="mic-btn" aria-label="Voice input">
+            <svg class="mic-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3z"></path>
+                <path d="M19 11a1 1 0 0 0-2 0 5 5 0 0 1-10 0 1 1 0 0 0-2 0 
+                         7 7 0 0 0 6 6.93V20H9a1 1 0 0 0 0 2h6a1 1 0 0 0 0-2h-2v-2.07
+                         A7 7 0 0 0 19 11z"></path>
+            </svg>
+        </button>
+
+        <input
+            id="user-input"
+            type="text"
+            autocomplete="off"
+            placeholder="Message DSU-CHATBOT..."
+        />
+
+        <button type="submit" class="send-btn">Send</button>
+    </form>
+
+    <!-- examples removed as you requested -->
+
+</main>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
