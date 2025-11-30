@@ -209,21 +209,3 @@ DSU-CHATBOT/
 * NLP academic project
 * Demonstration of NLM-powered semantic search
 
----
-
-# 📢 **Contributions**
-
-Pull requests are welcome.
-If you'd like to improve UI, add more languages, or enhance AI accuracy—feel free to contribute.
-
----
-
-# ⭐ **If you like this project, please give it a star!**
-
-Your support motivates continued improvements 💚✨
-
----
-
-
-✅ Architecture diagram
-Just tell me!
